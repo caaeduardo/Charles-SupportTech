@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/teamwork.css">
 </head>
 <body>
@@ -15,59 +16,152 @@
         <div class="header-left">
             <img src="Images/Charles2-removebg-preview.png" alt="Logo Charles²" class="logo">
         </div>
-        <div class="header-right">
-            <span class="material-icons notifications-icon">notifications</span>
-            <div class="user-profile">
-                <img src="https://via.placeholder.com/40" alt="Avatar do Usuário" class="avatar">
-                <span>Usuário Suporte</span>
-            </div>
-        </div>
+        
     </header>
 
     <main class="main-content">
         <section class="team-section">
-            <h1>Nossa Equipe</h1>
+            <div class="section-header">
+                <h1>Nossa Equipe de Especialistas</h1>
+                <p class="section-subtitle">Conheça os talentos por trás da Charles², comprometidos em entregar soluções inovadoras e de alta qualidade.</p>
+            </div>
+            
             <div class="carousel-container">
-                <button class="carousel-button prev">
+                <button class="carousel-button prev" aria-label="Membro anterior">
                     <span class="material-icons">arrow_back_ios</span>
                 </button>
+                
                 <div class="carousel-track-container">
                     <div class="carousel-track">
                         <div class="team-member carousel-item">
-                            <img src="Images/Imagem do WhatsApp de 2025-02-23 à(s) 17.45.38_b3ac5380.jpg" alt="Carlos Eduardo da Silva">
-                            <h3>Carlos Eduardo da Silva</h3>
-                            <p class="role">CEO & CO-Founder | Front-End Developer</p>
-                            <p class="description">Profissional com 2 anos de experiência em Front-End: HTML, CSS, JavaScript, React, C#, Wordpress, Git, GitHub.</p>
+                            <div class="member-image-container">
+                                <img src="Images/Imagem do WhatsApp de 2025-02-23 à(s) 17.45.38_b3ac5380.jpg" alt="Carlos Eduardo da Silva" class="member-photo">
+                                <div class="social-links">
+                                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="#" aria-label="Portfólio"><i class="fas fa-globe"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h3>Carlos Eduardo da Silva</h3>
+                                <p class="role">CEO & CO-Founder | Front-End Developer</p>
+                                <div class="skills">
+                                    <span>HTML/CSS</span>
+                                    <span>JavaScript</span>
+                                    <span>React</span>
+                                    <span>C#</span>
+                                </div>
+                                <p class="description">Líder visionário com 2 anos de experiência em desenvolvimento Front-End, especializado em criar interfaces intuitivas e responsivas que melhoram a experiência do usuário.</p>
+                                <button class="contact-btn">Contatar</button>
+                            </div>
                         </div>
+                        
                         <div class="team-member carousel-item">
-                            <img src="Images/Carlão.png" alt="Carlos Eduardo Cavaletto Coelho">
-                            <h3>Carlos Eduardo Cavaletto Coelho</h3>
-                            <p class="role">CO-Founder | Back-End Developer</p>
-                            <p class="description">Profissional com 3 anos de experiência em Back-End: Java, C#, Python, SQL, API REST, Spring Boot, Git, GitHub.</p>
+                            <div class="member-image-container">
+                                <img src="Images/Carlão.png" alt="Carlos Eduardo Cavaletto Coelho" class="member-photo">
+                                <div class="social-links">
+                                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="#" aria-label="Portfólio"><i class="fas fa-globe"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h3>Carlos Eduardo Cavaletto Coelho</h3>
+                                <p class="role">CO-Founder | Back-End Developer</p>
+                                <div class="skills">
+                                    <span>Java</span>
+                                    <span>C#</span>
+                                    <span>Python</span>
+                                    <span>SQL</span>
+                                </div>
+                                <p class="description">Especialista em Back-End com 3 anos de experiência, focado em desenvolver arquiteturas robustas e escaláveis que garantem alto desempenho e segurança para nossas soluções.</p>
+                                <button class="contact-btn">Contatar</button>
+                            </div>
                         </div>
+                        
                         <div class="team-member carousel-item">
-                            <img src="Images/gio.png" alt="Giovanne Silvério Marcondes">
-                            <h3>Giovanne Silvério Marcondes</h3>
-                            <p class="role">UI & UX Designer</p>
-                            <p class="description">Profissional focado em User Interface & User Experience com 3 anos de experiência: No-Code, C#, HTML, CSS, Wordpress, Figma, Behance, Git, GitHub.</p>
+                            <div class="member-image-container">
+                                <img src="Images/gio.png" alt="Giovanne Silvério Marcondes" class="member-photo">
+                                <div class="social-links">
+                                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="#" aria-label="Portfólio"><i class="fas fa-globe"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h3>Giovanne Silvério Marcondes</h3>
+                                <p class="role">UI/UX Designer</p>
+                                <div class="skills">
+                                    <span>Figma</span>
+                                    <span>UI Design</span>
+                                    <span>UX Research</span>
+                                    <span>Prototipagem</span>
+                                </div>
+                                <p class="description">Designer criativo com 3 anos de experiência em UI/UX, dedicado a criar interfaces bonitas e funcionais que combinam estética com usabilidade para proporcionar a melhor experiência ao usuário.</p>
+                                <button class="contact-btn">Contatar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-button next">
+                
+                <button class="carousel-button next" aria-label="Próximo membro">
                     <span class="material-icons">arrow_forward_ios</span>
                 </button>
             </div>
-            <div class="carousel-dots">
+            
+            <div class="carousel-dots"></div>
+            
+            <div class="team-values">
+                <h2>Nossos Valores</h2>
+                <div class="values-container">
+                    <div class="value-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Inovação</h3>
+                        <p>Buscamos constantemente novas soluções e abordagens criativas para desafios tecnológicos.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Colaboração</h3>
+                        <p>Trabalhamos em equipe, compartilhando conhecimento e apoiando o crescimento mútuo.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-medal"></i>
+                        <h3>Excelência</h3>
+                        <p>Comprometidos com a mais alta qualidade em cada projeto que entregamos.</p>
+                    </div>
                 </div>
+            </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="copyright">
-            &copy; 2025 Charles² - CePheus Soluções Inovadoras em Tecnologia da Informação. Todos os direitos reservados.
+        <div class="footer-content">
+            <div class="footer-left">
+                <img src="Images/Charles2-removebg-preview.png" alt="Logo Charles²" class="footer-logo">
+                <p class="footer-slogan">Soluções Inovadoras em Tecnologia da Informação</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Serviços</a>
+                    <a href="#">Portfólio</a>
+                    <a href="#">Contato</a>
+                </div>
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="credits">
-            Desenvolvido por <a href="https://caaeduardo.github.io/link-bio-cadu/" target="_blank" rel="noopener noreferrer">Carlos Eduardo da Silva</a>
+        <div class="footer-bottom">
+            <div class="copyright">
+                &copy; 2025 Charles² - CePheus Soluções Inovadoras em Tecnologia da Informação. Todos os direitos reservados.
+            </div>
+            <div class="credits">
+                Desenvolvido por <a href="https://caaeduardo.github.io/link-bio-cadu/" target="_blank" rel="noopener noreferrer">Carlos Eduardo da Silva</a>
+            </div>
         </div>
     </footer>
 

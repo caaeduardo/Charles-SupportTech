@@ -1,342 +1,540 @@
-/* Importação da fonte Inter do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
-/* --- Variáveis CSS para Cores e Espaçamento --- */
+/* --- Variáveis CSS Atualizadas --- */
 :root {
-    --bg-dark: #1A1A1A; /* Fundo principal escuro */
-    --bg-light: #2C2C2C; /* Fundo secundário/componentes */
-    --text-primary: #E0E0E0; /* Cor do texto principal */
-    --text-secondary: #A0A0A0; /* Cor do texto secundário/placeholders */
-    --accent-color: #007BFF; /* Cor de destaque (azul moderno) */
-    --accent-hover: #0056b3; /* Cor de destaque ao hover */
-    --border-color: #444444; /* Cor da borda sutil */
-    --border-radius: 8px; /* Arredondamento padrão para elementos */
-    --spacing-unit: 16px; /* Unidade base de espaçamento */
+    --bg-dark: #121212; /* Fundo mais escuro para melhor contraste */
+    --bg-light: #1E1E1E; /* Fundo secundário mais suave */
+    --bg-card: #252525; /* Cor específica para cards */
+    --text-primary: #FFFFFF; /* Branco puro para melhor legibilidade */
+    --text-secondary: #B0B0B0; /* Cinza mais claro para texto secundário */
+    --accent-color: #2c6858; /* Azul mais vibrante */
+    --accent-hover: #277a7a; /* Azul mais escuro no hover */
+    --border-color: #3A3A3A; /* Borda mais suave */
+    --border-radius: 12px; /* Bordas mais arredondadas */
+    --spacing-unit: 16px; /* Unidade base mantida */
+    --transition-speed: 0.3s; /* Velocidade padrão de transições */
+    
+    /* Novas variáveis para gradientes e sombras */
+    --gradient-accent: linear-gradient(135deg, #17c2c7 0%, #15a38c 100%);
+    --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.25);
+    --shadow-button: 0 4px 12px rgba(77, 138, 255, 0.3);
 }
 
-/* --- Default CSS (Global Styles) --- */
-body {
-    font-family: 'Inter', sans-serif; /* Fonte moderna e limpa */
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
+/* --- Reset e Estilos Globais Aprimorados --- */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* --- Header --- */
-header, .header {
-    background-color: var(--bg-light); /* Fundo secundário */
-    color: var(--text-primary);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
-    width: 100%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
-    border-bottom: 1px solid var(--border-color); /* Borda discreta */
-    box-sizing: border-box; /* Garante que padding não adicione largura extra */
-    position: sticky; /* Fixa o header no topo */
+/* --- Header Aprimorado --- */
+.header {
+    background-color: rgba(30, 30, 30, 0.9); /* Semi-transparente */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    position: sticky;
     top: 0;
     z-index: 1000;
+    transition: all var(--transition-speed) ease;
 }
 
-.header-left, .header-right {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--spacing-unit) * 1.5);
+.header.scrolled {
+    padding: calc(var(--spacing-unit) / 1.5) calc(var(--spacing-unit) * 2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: contain;
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .notifications-icon {
-    font-size: 28px;
-    cursor: pointer;
-    color: var(--text-secondary);
-    transition: color 0.3s ease;
+    position: relative;
+    font-size: 24px;
 }
 
-.notifications-icon:hover {
-    color: var(--text-primary);
+.notifications-icon::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    border: 2px solid var(--bg-light);
 }
 
 .user-profile {
     display: flex;
     align-items: center;
-    gap: calc(var(--spacing-unit) / 2);
-    font-weight: 600;
-    color: var(--text-primary);
+    gap: 10px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    transition: background-color var(--transition-speed) ease;
 }
 
-.user-profile .avatar {
+.user-profile:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     object-fit: cover;
+    border-radius: 50%;
     border: 2px solid var(--accent-color);
 }
 
-/* --- Main Content --- */
-.main-content {
-    flex: 1;
-    width: 90%;
-    max-width: 1200px;
-    margin: calc(var(--spacing-unit) * 4) auto;
-    padding: calc(var(--spacing-unit) * 2);
-    box-sizing: border-box;
-    text-align: center; /* Centraliza o título da seção */
+/* --- Seção de Equipe Aprimorada --- */
+.team-section {
+    padding: calc(var(--spacing-unit) * 3) 0;
 }
 
-.team-section h1 {
-    font-size: 3em;
-    font-weight: 700; /* Um pouco mais de peso para o título */
-    color: var(--text-primary);
-    margin-bottom: calc(var(--spacing-unit) * 3);
-    letter-spacing: 0.05em;
+.section-header {
+    max-width: 800px;
+    margin: 0 auto calc(var(--spacing-unit) * 3);
+    padding: 0 var(--spacing-unit);
 }
 
-/* --- Carousel Specific Styles --- */
+.section-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-unit);
+    background: linear-gradient(to right, #fff 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Carrossel Aprimorado --- */
 .carousel-container {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 900px; /* Limita a largura do carrossel */
+    max-width: 1200px;
     margin: 0 auto;
-    overflow: hidden; /* Importante para o carrossel */
-}
-
-.carousel-button {
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%; /* Botões redondos */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-size: 24px; /* Tamanho do ícone */
-    width: 50px; /* Largura e altura para fazer um círculo perfeito */
-    height: 50px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-    transform: translateY(-50%) scale(1.05); /* Pequeno efeito de zoom */
-}
-
-.carousel-button.prev {
-    left: -25px; /* Posição para fora da borda esquerda */
-}
-
-.carousel-button.next {
-    right: -25px; /* Posição para fora da borda direita */
+    padding: 0 calc(var(--spacing-unit) * 2);
 }
 
 .carousel-track-container {
-    width: 100%;
-    overflow: hidden; /* Oculta os itens que estão fora da vista */
-    padding: var(--spacing-unit); /* Espaçamento interno para os cards */
-    box-sizing: border-box;
+    overflow: hidden;
+    padding: var(--spacing-unit) 0;
 }
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* Transição suave */
-    will-change: transform; /* Otimização de performance */
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .carousel-item {
-    min-width: 320px; /* Largura mínima de cada card (ajuste conforme necessário) */
-    flex-shrink: 0; /* Impede que os itens encolham */
-    margin: 0 calc(var(--spacing-unit) / 2); /* Espaçamento entre os cards */
-    background-color: var(--bg-light);
+    min-width: 350px;
+    flex: 0 0 calc(33.333% - 20px);
+    margin: 0 10px;
+    background-color: var(--bg-card);
     border-radius: var(--border-radius);
-    padding: calc(var(--spacing-unit) * 2);
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--border-color);
-    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
-    display: flex; /* Para flexbox interno do card */
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-.carousel-item img {
+.carousel-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+.member-image-container {
+    position: relative;
+    padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2) 0;
+}
+
+.member-photo {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: var(--spacing-unit);
-    border: 3px solid var(--accent-color);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    display: block;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 4px 20px rgba(77, 138, 255, 0.3);
+    transition: transform var(--transition-speed) ease;
 }
 
-.carousel-item h3 {
-    font-size: 1.6em;
-    font-weight: 600;
-    margin-bottom: calc(var(--spacing-unit) / 2);
+.carousel-item:hover .member-photo {
+    transform: scale(1.05);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-speed) ease;
+}
+
+.carousel-item:hover .social-links {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(77, 138, 255, 0.1);
+    color: var(--accent-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.social-links a:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.member-info {
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.member-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
     color: var(--text-primary);
 }
 
-.carousel-item .role {
-    font-weight: 400;
+.role {
+    font-size: 0.95rem;
     color: var(--accent-color);
-    margin-bottom: var(--spacing-unit);
-    font-size: 0.95em;
+    font-weight: 600;
+    margin-bottom: 16px;
 }
 
-.carousel-item .description {
-    font-size: 0.9em;
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    justify-content: center;
+}
+
+.skills span {
+    background-color: rgba(77, 138, 255, 0.15);
+    color: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.description {
     color: var(--text-secondary);
-    margin-bottom: 0;
-    flex-grow: 1; /* Permite que a descrição ocupe o espaço restante */
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    flex-grow: 1;
 }
 
+.contact-btn {
+    background: var(--gradient-accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    align-self: center;
+    margin-top: auto;
+    box-shadow: var(--shadow-button);
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(77, 138, 255, 0.4);
+}
+
+/* --- Botões de Navegação do Carrossel --- */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-speed) ease;
+    opacity: 0.8;
+}
+
+.carousel-button:hover {
+    opacity: 1;
+    background-color: var(--accent-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* --- Indicadores do Carrossel --- */
 .carousel-dots {
     display: flex;
     justify-content: center;
+    gap: 8px;
     margin-top: calc(var(--spacing-unit) * 2);
-    gap: calc(var(--spacing-unit) / 2);
 }
 
 .dot {
     width: 10px;
     height: 10px;
-    background-color: var(--border-color);
     border-radius: 50%;
+    background-color: var(--border-color);
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .dot.active {
     background-color: var(--accent-color);
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
-/* --- Footer --- */
+/* --- Seção de Valores --- */
+.team-values {
+    max-width: 1200px;
+    margin: calc(var(--spacing-unit) * 4) auto 0;
+    padding: 0 var(--spacing-unit);
+}
+
+.team-values h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    color: var(--text-primary);
+}
+
+.values-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+    padding: 0 var(--spacing-unit);
+}
+
+.value-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: calc(var(--spacing-unit) * 2);
+    text-align: center;
+    transition: transform var(--transition-speed) ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-card i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-unit);
+}
+
+.value-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.value-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* --- Footer Aprimorado --- */
 .footer {
     background-color: var(--bg-light);
     color: var(--text-secondary);
-    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
-    text-align: center;
-    width: 100%;
-    border-top: 1px solid var(--border-color);
-    margin-top: calc(var(--spacing-unit) * 4);
-    box-sizing: border-box;
+    padding: calc(var(--spacing-unit) * 3) 0;
+    margin-top: auto;
 }
 
-.footer .copyright {
-    margin-bottom: calc(var(--spacing-unit) / 2);
-    font-size: 0.85em;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+    padding: 0 var(--spacing-unit);
 }
 
-.footer .credits {
-    font-size: 0.85em;
+.footer-logo {
+    width: 80px;
+    margin-bottom: var(--spacing-unit);
 }
 
-.footer a {
-    color: var(--accent-color);
+.footer-slogan {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-unit);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
-.footer a:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
+.footer-links a:hover {
+    color: var(--accent-color);
 }
 
-/* --- Responsividade --- */
+.social-media {
+    display: flex;
+    gap: 16px;
+    margin-top: var(--spacing-unit);
+}
+
+.social-media a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.social-media a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: calc(var(--spacing-unit) * 2);
+    padding-top: var(--spacing-unit);
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Responsividade Aprimorada --- */
 @media (max-width: 1024px) {
-    .carousel-container {
-        max-width: 600px; /* Permite 2 cards em telas médias */
-    }
-    .carousel-button.prev {
-        left: 0;
-    }
-    .carousel-button.next {
-        right: 0;
+    .carousel-item {
+        flex: 0 0 calc(50% - 20px);
     }
 }
 
 @media (max-width: 768px) {
-    .header {
-        padding: var(--spacing-unit);
+    .section-header h1 {
+        font-size: 2.2rem;
     }
-    .header-left, .header-right {
-        gap: var(--spacing-unit);
-    }
-    .main-content {
-        width: 95%;
-        margin-top: calc(var(--spacing-unit) * 6);
-        padding: var(--spacing-unit);
-    }
-    .team-section h1 {
-        font-size: 2.5em;
-    }
-    .carousel-container {
-        max-width: 360px; /* Força 1 card por vez em telas menores */
-    }
+    
     .carousel-item {
-        min-width: 280px; /* Ajusta a largura mínima do card */
-        margin: 0 calc(var(--spacing-unit) / 4);
-        padding: calc(var(--spacing-unit) * 1.5);
+        flex: 0 0 calc(100% - 40px);
+        min-width: auto;
+        margin: 0 20px;
     }
+    
     .carousel-button {
         width: 40px;
         height: 40px;
-        font-size: 20px;
     }
-    .carousel-button.prev {
-        left: -10px;
-    }
-    .carousel-button.next {
-        right: -10px;
+    
+    .values-container {
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 480px) {
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--spacing-unit);
+    .section-header h1 {
+        font-size: 1.8rem;
     }
-    .header-right {
-        width: 100%;
-        justify-content: space-between;
+    
+    .section-subtitle {
+        font-size: 1rem;
     }
-    .logo {
-        width: 50px;
-        height: 50px;
-    }
-    .user-profile span {
-        display: none;
-    }
-    .main-content {
-        padding: calc(var(--spacing-unit) / 2);
-    }
-    .team-section h1 {
-        font-size: 2em;
-    }
-    .carousel-item img {
+    
+    .member-photo {
         width: 120px;
         height: 120px;
     }
-    .footer {
-        padding: var(--spacing-unit);
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
+    
+    .footer-links {
+        align-items: center;
+    }
+    
+    .social-media {
+        justify-content: center;
+    }
+}
+
+/* --- Animações --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.team-section {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* --- Efeito de Destaque no Hover --- */
+.carousel-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.carousel-item:hover::after {
+    opacity: 1;
 }
