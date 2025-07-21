@@ -196,63 +196,62 @@ section .hero-content h1
 }
 
 
+/* Estilos para a seção About Modernizada */
 .sobre {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 100%;
-    padding: 20px;
-    background-color: #000000;
+    background-color: #0a0a0a;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.about-card {
+    background: #1a1a1a;
+    border: 1px solid aquamarine;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+    padding: 30px 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.sobre:hover {
-    transform: translateY(-5px);
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(127, 255, 212, 0.2);
 }
 
-.sobre h1 {
-    font-size: 2.8em;
-    color: #ffffff;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-}
-.sobre h3 {
-    font-size: 1.2em;
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
     color: aquamarine;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
 }
 
-.sobre p {
-    font-size: 1.1em;
-    color: #ffffff;
-    line-height: 1.8;
-    margin-bottom: 40px;
-    text-align: center;
+.about-card h3 {
+    color: aquamarine;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
 }
 
-.sobre strong {
-    margin-bottom: 25px;
-    color:aquamarine;
-
-
+.about-card p {
+    color: #e0e0e0;
+    line-height: 1.6;
 }
 
-.sobre .logo {
-    max-width: 250px;
-    height: auto;
-    transition: transform 0.3s ease-in-out;
-    text-align: center;
-
+.about-logo {
+    margin-top: 50px;
 }
 
-.sobre .logo:hover {
-    transform: scale(1.1);
+.about-logo img {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.about-logo img:hover {
+    opacity: 1;
 }
 
 .contato {
